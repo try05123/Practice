@@ -14,6 +14,10 @@
         @Html.AntiForgeryToken()
 
         @Html.DropDownListFor(m => m.Level, Model.Levels, new { @class = "test" })
+
+        @Html.TextBoxFor(m => m.EmpName)
+        @Html.ValidationMessageFor(m => m.EmpName, "", new { @class = "text-danger" })
+
         <input type="submit" />
     }
 

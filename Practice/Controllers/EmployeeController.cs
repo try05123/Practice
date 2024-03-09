@@ -28,20 +28,21 @@ namespace Practice20240309.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string Level)
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(PracticeViewModel model)
         {
-            var model = new PracticeViewModel();
+            model.Levels = new List<SelectListItem>()
+            {
+                new SelectListItem(){ Text = "Boss", Value = "1" },
+                new SelectListItem(){ Text = "Student", Value = "2" }
+            };
 
+            //ModelState.AddModelError("EmpName", "上傳的檔案必須是圖片格式(jpg, jpeg, png)");
+
+            //驗證必填
             if (ModelState.IsValid)
             {
-                model.Level = Level;
-                model.Datas = db.Employee.Where(m => m.EmpLevel.ToString() == model.Level).ToList();
-
-                model.Levels = new List<SelectListItem>()
-                {
-                    new SelectListItem(){ Text = "Boss", Value = "1" },
-                    new SelectListItem(){ Text = "Student", Value = "2" }
-                };
+                model.Datas = db.Employee.Where(m => m.EmpLevel.ToString() == model.Level && m.EmpName.Equals(model.EmpName)).ToList();
             }
 
             return View(model);
