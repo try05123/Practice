@@ -1,0 +1,28 @@
+﻿@using Practice20240309.Models.ViewModel
+
+@model PracticeViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Test</h2>
+
+<div>
+    @using (Html.BeginForm("Index", "Employee", FormMethod.Post, new { id = "searchForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.DropDownListFor(m => m.Level, Model.Levels, new { @class = "test" })
+        <input type="submit" />
+    }
+
+    <table>
+        @foreach (var item in Model.Datas)
+        {
+            <tr>
+                <td>@item.EmpName</td>
+            </tr>
+        }
+    </table>
+</div>
