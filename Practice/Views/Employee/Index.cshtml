@@ -1,4 +1,5 @@
-﻿@using Practice20240309.Models.ViewModel
+﻿@using Practice20240309.Models
+@using Practice20240309.Models.ViewModel
 
 @model PracticeViewModel
 
@@ -18,6 +19,14 @@
         @Html.TextBoxFor(m => m.EmpName)
         @Html.ValidationMessageFor(m => m.EmpName, "", new { @class = "text-danger" })
 
+        foreach (var item in Enum.GetValues(typeof(AppAreaEnum)).Cast<AppAreaEnum>())
+        {
+            <label>
+                @Html.RadioButtonFor(m => m.AppArea, ((int)item).ToString(), new { id = "AppArea_" + (int)item })
+                @Practice20240309.Helpers.EnumExtension.GetDescription(item)
+            </label>
+        }
+
         <input type="submit" />
     }
 
@@ -26,6 +35,7 @@
         {
             <tr>
                 <td>@item.EmpName</td>
+                <td>@item.Level.LevelName</td>
             </tr>
         }
     </table>

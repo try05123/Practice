@@ -11,6 +11,8 @@ namespace Practice20240309.Models.ViewModel
     {
         public string Level { get; set; }
 
+        public string AppArea { get; set; }
+
         [Required(ErrorMessage = "請輸入")]
         public string EmpName { get; set; }
 

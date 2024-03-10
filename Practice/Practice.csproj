@@ -133,7 +133,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\EnumExtension.cs" />
+    <Compile Include="Models\AppAreaEnum.cs" />
     <Compile Include="Models\Employee.cs">
+      <DependentUpon>PracticeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Level.cs">
       <DependentUpon>PracticeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PracticeModel.Context.cs">
@@ -165,8 +170,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\PracticeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PracticeModel.Context.cs</LastGenOutput>
       <DependentUpon>PracticeModel.edmx</DependentUpon>
+      <LastGenOutput>PracticeModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\PracticeModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -26,5 +26,6 @@ namespace Practice20240309.Models
         }
     
         public virtual DbSet<Employee> Employee { get; set; }
+        public virtual DbSet<Level> Level { get; set; }
     }
 }

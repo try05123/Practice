@@ -17,5 +17,7 @@ namespace Practice20240309.Models
         public int EmployeeId { get; set; }
         public string EmpName { get; set; }
         public int EmpLevel { get; set; }
+    
+        public virtual Level Level { get; set; }
     }
 }
